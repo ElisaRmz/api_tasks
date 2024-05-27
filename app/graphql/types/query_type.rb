@@ -22,8 +22,8 @@ module Types
     # They will be entry points for queries on your schema.
 
     field :project, Types::ProjectType, null: true do
-      description "Obtiene un proyecto por su ID."
-      argument :id, ID, required: true, description: "ID del proyecto."
+      description "Obtains a project with their ID."
+      argument :id, ID, required: true, description: "ID of the project."
     end
 
     def project(id:)
@@ -32,18 +32,11 @@ module Types
 
     # Campo para obtener una lista de proyectos
     field :projects, [Types::ProjectType], null: true do
-      description "Obtiene una lista de proyectos."
+      description "Obtains a list of projects."
     end
 
     def projects
       Project.all
-    end
-
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
     end
   end
 end
