@@ -2,11 +2,14 @@
 
 module Types
   class MutationType < Types::BaseObject
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World"
+    field :create_project, Types::ProjectType, null: false do
+      description "Creates a new Project"
+      argument :title, String, required: true
+      argument :completed, Boolean
+    end
+
+    def create_project(title:, completed: false)
+      Project.create(title: title, completed: completed)
     end
   end
 end
