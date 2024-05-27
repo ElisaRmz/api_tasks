@@ -1,3 +1,3 @@
 class Project < ApplicationRecord
-  # agrega aquí cualquier validación, asociación u otros métodos
+  validates :title, presence: true
 end
