@@ -21,6 +21,24 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
+    field :project, Types::ProjectType, null: true do
+      description "Obtiene un proyecto por su ID."
+      argument :id, ID, required: true, description: "ID del proyecto."
+    end
+
+    def project(id:)
+      Project.find(id)
+    end
+
+    # Campo para obtener una lista de proyectos
+    field :projects, [Types::ProjectType], null: true do
+      description "Obtiene una lista de proyectos."
+    end
+
+    def projects
+      Project.all
+    end
+
     # TODO: remove me
     field :test_field, String, null: false,
       description: "An example field added by the generator"
