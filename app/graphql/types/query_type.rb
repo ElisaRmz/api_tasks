@@ -21,6 +21,8 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
+    # Project
+
     field :project, Types::ProjectType, null: true do
       description "Obtains a project with their ID."
       argument :id, ID, required: true, description: "ID of the project."
@@ -30,13 +32,18 @@ module Types
       Project.find(id)
     end
 
-    # Campo para obtener una lista de proyectos
     field :projects, [Types::ProjectType], null: true do
       description "Obtains a list of projects."
     end
 
     def projects
       Project.all
+    end
+
+    # Task
+
+    def project(id:)
+      Project.find(id)
     end
   end
 end

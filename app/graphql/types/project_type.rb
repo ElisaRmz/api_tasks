@@ -6,5 +6,9 @@ module Types
     field :title, String, null: false
     field :completed, Boolean
     field :tasks, [Types::TaskType]
+
+    def tasks
+      object.tasks
+    end
   end
 end

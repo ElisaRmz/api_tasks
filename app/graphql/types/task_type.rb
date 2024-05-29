@@ -2,8 +2,9 @@
 
 module Types
   class TaskType < Types::BaseObject
-    field :title, String
-    field :description, String
+    field :id, ID, null: false
+    field :title, String, null: false
+    field :description, String, null: false
     field :completed, Boolean
   end
 end
