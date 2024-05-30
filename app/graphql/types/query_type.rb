@@ -37,5 +37,13 @@ module Types
     def projects
       Project.all
     end
+
+    field :tasks, [Types::TaskType], null: true do
+      description "Obtains a list of tasks."
+    end
+
+    def tasks
+      Task.all
+    end
   end
 end

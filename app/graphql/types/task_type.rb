@@ -6,5 +6,6 @@ module Types
     field :title, String, null: false
     field :description, String, null: false
     field :completed, Boolean
+    field :project, Types::ProjectType, null: false
   end
 end
