@@ -3,13 +3,22 @@
 module Types
   class MutationType < Types::BaseObject
     field :create_project, Types::ProjectType, null: false do
-      description "Creates a new Project"
       argument :title, String, required: true
       argument :completed, Boolean
     end
 
     def create_project(title:, completed: false)
       Project.create(title: title, completed: completed)
+    end
+
+    field :create_task, Types::TaskType, null: false do
+      argument :title, String, required: true
+      argument :description, String, required: true
+      argument :project_id, ID, required: true
+    end
+
+    def create_task(title:, description:, project_id:)
+      Task.create(title: title, description: description, project_id: project_id)
     end
   end
 end
