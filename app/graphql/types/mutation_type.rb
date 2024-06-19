@@ -22,5 +22,7 @@ module Types
     def create_task(title:, description:, project_id:)
       Task.create(title: title, description: description, project_id: project_id)
     end
+
+    field :delete_task, mutation: Mutations::DeleteTask
   end
 end
