@@ -16,8 +16,6 @@ RSpec.describe 'DeleteProject Mutation', type: :request do
   it 'deletes a project' do
     expect {
       post graphql_path, params: { query: mutation }
-      puts response.inspect
-      #binding.irb
     }.to change { Project.count }.by(-1)
 
     json_response = JSON.parse(response.body)
