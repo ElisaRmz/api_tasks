@@ -11,6 +11,8 @@ module Types
       Project.create(title: title, completed: completed)
     end
 
+    field :delete_project, mutation: Mutations::DeleteProject
+
     field :create_task, Types::TaskType, null: false do
       argument :title, String, required: true
       argument :description, String, required: true
